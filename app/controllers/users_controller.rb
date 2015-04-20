@@ -56,7 +56,11 @@ class UsersController < ApplicationController
     User.delete_all
     redirect_to root_path
   end
-  
+
+	def user_count
+		render :json => { user_count:User.all.count}
+	end
+
   def user_params
     params.permit(:username, :password)
   end
